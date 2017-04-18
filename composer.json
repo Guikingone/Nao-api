@@ -12,7 +12,9 @@
         }
     ],
     "autoload": {
-        "psr-4": { "": "src/" },
+        "psr-4": {
+            "": "src/"
+        },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
