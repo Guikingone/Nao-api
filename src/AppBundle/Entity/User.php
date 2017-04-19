@@ -35,11 +35,33 @@ class User
      */
     private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=200, nullable=true)
+     */
     private $firstname;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=200, nullable=true)
+     */
     private $lastname;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthdate", type="date", nullable=true)
+     */
     private $birthdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="localisation", type="string", length=150, nullable=true)
+     */
+    private $localisation;
 
     /**
      * @var string
@@ -48,7 +70,36 @@ class User
      */
     private $username;
 
+    /** @var string */
+    private $plainPassword;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
     private $password;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="validated", type="boolean")
+     */
+    private $validated;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active;
 
     /**
      * @var Observations
@@ -56,7 +107,6 @@ class User
      * @ORM\OneToMany(targetEntity="Observations", mappedBy="author")
      */
     private $observations;
-
 
     /**
      * Constructor
@@ -74,6 +124,102 @@ class User
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return User
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return User
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set birthdate
+     *
+     * @param \DateTime $birthdate
+     *
+     * @return User
+     */
+    public function setBirthdate($birthdate)
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthdate
+     *
+     * @return \DateTime
+     */
+    public function getBirthdate()
+    {
+        return $this->birthdate;
+    }
+
+    /**
+     * Set localisation
+     *
+     * @param string $localisation
+     *
+     * @return User
+     */
+    public function setLocalisation($localisation)
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * Get localisation
+     *
+     * @return string
+     */
+    public function getLocalisation()
+    {
+        return $this->localisation;
     }
 
     /**
@@ -98,6 +244,102 @@ class User
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set validated
+     *
+     * @param boolean $validated
+     *
+     * @return User
+     */
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
+
+        return $this;
+    }
+
+    /**
+     * Get validated
+     *
+     * @return boolean
+     */
+    public function getValidated()
+    {
+        return $this->validated;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     *
+     * @return User
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 
     /**
