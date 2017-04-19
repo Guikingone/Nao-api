@@ -58,7 +58,7 @@ class Observations
     /**
      * @var Species
      *
-     * @ORM\OneToOne(targetEntity="Species", mappedBy="observations")
+     * @ORM\ManyToOne(targetEntity="Species", inversedBy="observations")
      */
     private $species;
 
